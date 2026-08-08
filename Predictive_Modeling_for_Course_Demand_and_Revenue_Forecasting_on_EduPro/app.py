@@ -26,10 +26,10 @@ def load_excel_data(file_path_or_buffer):
     excel_file = 'Instructor_Performance_and_Course_Quality_Evaluation_on_EduPro/read_edu.xlsx'
 
      # Raw Sheet Loading
-    raw_users_df = pd.read_excel(xls, sheet_name='Users')
-    raw_teachers_df = pd.read_excel(xls, sheet_name='Teachers')
-    raw_courses_df = pd.read_excel(xls, sheet_name='Courses')
-    raw_transactions_df = pd.read_excel(xls, sheet_name='Transactions')
+    raw_users_df = pd.read_excel(excel_file, sheet_name='Users')
+    raw_teachers_df = pd.read_excel(excel_file, sheet_name='Teachers')
+    raw_courses_df = pd.read_excel(excel_file, sheet_name='Courses')
+    raw_transactions_df = pd.read_excel(excel_file, sheet_name='Transactions')
 
     # Mapping to exact requested structure
     users_df = pd.DataFrame({
