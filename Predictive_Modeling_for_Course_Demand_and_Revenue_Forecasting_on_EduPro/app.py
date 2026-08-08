@@ -91,58 +91,6 @@ def load_excel_data(file_path_or_buffer):
     return users_df, teachers_df, courses_df, transactions_df
 
 
-@st.cache_data
-def generate_demo_data():
-    """Fallback synthetic dataset matching exact structure."""
-    np.random.seed(42)
-    n_users, n_teachers, n_courses, n_transactions = 200, 50, 100, 1500
-    
-    categories = ['Technology', 'Design', 'Business', 'Data & AI', 'Marketing']
-    levels = ['Beginner', 'Intermediate', 'Advanced']
-    expertise_list = ['Data Science', 'Web Development', 'UI/UX Design', 'Business Analytics', 'Cloud Computing', 'AI & Machine Learning']
-
-    raw_users_df = pd.DataFrame({
-        'UserID': [f'U{1000 + i}' for i in range(n_users)],
-        'UserName': [f'User_{i}' for i in range(n_users)],
-        'Age': np.random.randint(18, 60, n_users),
-        'Gender': np.random.choice(['Male', 'Female'], n_users),
-        'Email': [f'user_{i}@example.com' for i in range(n_users)]
-    })
-
-    raw_teachers_df = pd.DataFrame({
-        'TeacherID': [f'T{100 + i}' for i in range(n_teachers)],
-        'TeacherName': [f'Teacher_{i}' for i in range(n_teachers)],
-        'Age': np.random.randint(28, 65, n_teachers),
-        'Gender': np.random.choice(['Male', 'Female'], n_teachers),
-        'Expertise': np.random.choice(expertise_list, n_teachers),
-        'YearsOfExperience': np.random.randint(1, 20, n_teachers),
-        'TeacherRating': np.random.uniform(3.8, 5.0, n_teachers).round(1)
-    })
-
-    raw_courses_df = pd.DataFrame({
-        'CourseID': [f'C{1000 + i}' for i in range(n_courses)],
-        'CourseName': [f'Course_{i}' for i in range(n_courses)],
-        'CourseCategory': np.random.choice(categories, n_courses),
-        'CourseLevel': np.random.choice(levels, n_courses),
-        'CourseRating': np.random.uniform(3.5, 5.0, n_courses).round(1),
-        'CoursePrice': np.random.uniform(20, 300, n_courses).round(2),
-        'CourseType': np.random.choice(['Self-Paced', 'Live BootCamp'], n_courses),
-        'CourseDuration': np.random.randint(5, 60, n_courses)
-    })
-
-    tx_course_ids = np.random.choice(raw_courses_df['CourseID'], n_transactions)
-    tx_teacher_ids = np.random.choice(raw_teachers_df['TeacherID'], n_transactions)
-    tx_user_ids = np.random.choice(raw_users_df['UserID'], n_transactions)
-
-    raw_transactions_df = pd.DataFrame({
-        'TransactionID': [f'TX{10000 + i}' for i in range(n_transactions)],
-        'UserID': tx_user_ids,
-        'CourseID': tx_course_ids,
-        'TeacherID': tx_teacher_ids,
-        'Amount': np.random.uniform(20, 300, n_transactions).round(2)
-    })
-
-    return load_excel_data_from_dfs(raw_users_df, raw_teachers_df, raw_courses_df, raw_transactions_df)
 
 
 def load_excel_data_from_dfs(raw_users_df, raw_teachers_df, raw_courses_df, raw_transactions_df):
@@ -297,7 +245,7 @@ def main():
     st.markdown("Forecasting enrollment demand and revenue analytics across Users, Teachers, Courses, and Transactions.")
 
     
-    default_filename = 'read_edu.xlsx'
+    default_filename = 'Predictive_Modeling_for_Course_Demand_and_Revenue_Forecasting_on_EduPro/read_edu.xlsx'
 
     if os.path.exists(default_filename):
        
