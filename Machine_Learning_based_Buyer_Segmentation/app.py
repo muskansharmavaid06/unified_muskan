@@ -14,7 +14,7 @@ st.markdown("AI-driven Buyer Profiling and Analytics Platform for **Parcl Co. Li
 
 @st.cache_data
 def load_data():
-    df = load_and_merge_data('data/clients.csv', 'data/properties.csv')
+    df = load_and_merge_data('Machine_Learning_based_Buyer_Segmentation/data/clients.csv', 'Machine_Learning_based_Buyer_Segmentation/data/properties.csv')
     X, _ = prepare_features(df)
     labels = run_clustering(X, n_clusters=4, method='kmeans')
     
