@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # Set your fixed local CSV file path here
-CSV_FILE_PATH = "European_Bank.csv"
+CSV_FILE_PATH = "Customer_Engagement/European_Bank.csv"
 
 @st.cache_data
 def load_and_transform_csv_from_path(file_path):
