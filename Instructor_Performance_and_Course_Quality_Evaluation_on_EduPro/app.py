@@ -39,7 +39,7 @@ def load_and_process_data():
     'Users', 'Teachers', 'Courses', and 'Transactions' sheets, 
     or falls back to individual CSV files / synthetic data generation.
     """
-    excel_file = 'read_edu.xlsx'
+    excel_file = 'Instructor_Performance_and_Course_Quality_Evaluation_on_EduPro/read_edu.xlsx'
     
 
     # Attempt to load directly from Excel Workbook with all sheets
