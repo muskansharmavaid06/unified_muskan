@@ -23,7 +23,8 @@ st.set_page_config(
 def load_excel_data(file_path_or_buffer):
     """Reads Excel file containing Users, Teachers, Courses, and Transactions sheets."""
    
-    excel_file = 'Predictive_Modeling_for_Course_Demand_and_Revenue_Forecasting_on_EduPro/read_edu.xlsx'
+    excel_file = 'Instructor_Performance_and_Course_Quality_Evaluation_on_EduPro/read_edu.xlsx'
+
      # Raw Sheet Loading
     raw_users_df = pd.read_excel(xls, sheet_name='Users')
     raw_teachers_df = pd.read_excel(xls, sheet_name='Teachers')
